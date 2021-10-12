@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Tyler2P/Roblox-Scripts/main/Murder-Mystery-2/Useful-tools.lua", true))()

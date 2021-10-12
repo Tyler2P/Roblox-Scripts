@@ -1,0 +1,1 @@
+This directory contains a short script to execute for each game instead of copy and pasting thousands of lines of code each time you launch a game
