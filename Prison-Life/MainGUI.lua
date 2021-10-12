@@ -133,6 +133,26 @@ guis.Font = Enum.Font.GothamBlack
 guis.Text = "Guis"
 guis.TextColor3 = Color3.new(0, 0, 0)
 guis.TextSize = 25
+function SCRIPT_CIMJ66_FAKESCRIPT() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = guis
+	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
+ 
+	counter = 0
+ 
+	while wait(0.1)do
+	 script.Parent.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
+ 
+	 counter = counter + 0.01
+	end
+ 
+ 
+end
+coroutine.resume(coroutine.create(SCRIPT_CIMJ66_FAKESCRIPT))
+guis.MouseButton1Down:connect(function()
+    scriptsmain.Visible = false
+    guismain.Visible = true
+end)
 
 funcs.Name = "funcs"
 funcs.Parent = main
@@ -185,7 +205,7 @@ prisonbreakerv15.TextScaled = true
 prisonbreakerv15.TextSize = 14
 prisonbreakerv15.TextWrapped = true
 prisonbreakerv15.MouseButton1Down:connect(function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/pPW4pg2i", true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Tyler2P/Roblox-Scripts/main/Prison-Life/prison-breaker-v1.6.lua", true))()
 end)
 
 prisondestroyer.Name = "prisondestroyer"
