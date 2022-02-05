@@ -368,7 +368,7 @@ game:GetService("Workspace").ChildAdded:connect(
     end)
 
 lplayer.Chatted:Connect(function(msg)
-    if string.sub(msg, 1, 7) == (prefix .. "bring ") then
+    if string.sub(msg, 1, 7) == (prefix.."bring ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 8))) do
             local NOW = lplayer.Character.HumanoidRootPart.CFrame
             lplayer.Character.Humanoid.Name = 1
@@ -390,8 +390,7 @@ lplayer.Chatted:Connect(function(msg)
             local function tp(player, player2)
                 local char1, char2 = player.Character, player2.Character
                 if char1 and char2 then
-                    char1.HumanoidRootPart.CFrame =
-                        char2.HumanoidRootPart.CFrame
+                    char1.HumanoidRootPart.CFrame = char2.HumanoidRootPart.CFrame
                 end
             end
             local function getout(player, player2)
@@ -411,7 +410,7 @@ lplayer.Chatted:Connect(function(msg)
             lplayer.Character.HumanoidRootPart.CFrame = NOW
         end
     end
-    if string.sub(msg, 1, 6) == (prefix .. "spin ") then
+    if string.sub(msg, 1, 6) == (prefix.."spin ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 7))) do
             lplayer.Character.Humanoid.Name = 1
             local l = lplayer.Character["1"]:Clone()
@@ -441,8 +440,8 @@ lplayer.Chatted:Connect(function(msg)
             })
         end
     end
-    if string.sub(msg, 1, 7) == (prefix .. "unspin") then spin = false end
-    if string.sub(msg, 1, 8) == (prefix .. "attach ") then
+    if string.sub(msg, 1, 7) == (prefix.."unspin") then spin = false end
+    if string.sub(msg, 1, 8) == (prefix.."attach ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 9))) do
             lplayer.Character.Humanoid.Name = 1
             local l = lplayer.Character["1"]:Clone()
@@ -472,7 +471,7 @@ lplayer.Chatted:Connect(function(msg)
             })
         end
     end
-    if string.sub(msg, 1, 10) == (prefix .. "unattach ") then
+    if string.sub(msg, 1, 10) == (prefix.."unattach ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 11))) do
             local function getout(player, player2)
                 local char1, char2 = player.Character, player2.Character
@@ -483,14 +482,14 @@ lplayer.Chatted:Connect(function(msg)
             getout(lplayer, game:GetService("Players")[v.Name])
         end
     end
-    if string.sub(msg, 1, 8) == (prefix .. "follow ") then
+    if string.sub(msg, 1, 8) == (prefix.."follow ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 9))) do
             followed = true
             flwplr = v
         end
     end
-    if string.sub(msg, 1, 9) == (prefix .. "unfollow") then followed = false end
-    if string.sub(msg, 1, 10) == (prefix .. "freefall ") then
+    if string.sub(msg, 1, 9) == (prefix.."unfollow") then followed = false end
+    if string.sub(msg, 1, 10) == (prefix.."freefall ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 11))) do
             local NOW = lplayer.Character.HumanoidRootPart.CFrame
             lplayer.Character.Humanoid.Name = 1
@@ -526,7 +525,7 @@ lplayer.Chatted:Connect(function(msg)
             })
         end
     end
-    if string.sub(msg, 1, 7) == (prefix .. "orbit ") then
+    if string.sub(msg, 1, 7) == (prefix.."orbit ") then
         if string.sub(msg, 8) == "all" or string.sub(msg, 8) == "others" or
             string.sub(msg, 8) == "me" then
             lplayer.Character.HumanoidRootPart.CFrame =
@@ -542,11 +541,11 @@ lplayer.Chatted:Connect(function(msg)
             end
         end
     end
-    if string.sub(msg, 1, 8) == (prefix .. "unorbit") then
+    if string.sub(msg, 1, 8) == (prefix.."unorbit") then
         lplayer.Character.HumanoidRootPart.Orbit:Destroy()
         noclip = false
     end
-    if string.sub(msg, 1, 8) == (prefix .. "fecheck") then
+    if string.sub(msg, 1, 8) == (prefix.."fecheck") then
         if game:GetService("Workspace").FilteringEnabled == true then
             warn("FE is Enabled (Filtering Enabled)")
             game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -562,53 +561,53 @@ lplayer.Chatted:Connect(function(msg)
             })
         end
     end
-    if string.sub(msg, 1, 7) == (prefix .. "noclip") then noclip = true end
-    if string.sub(msg, 1, 5) == (prefix .. "clip") then noclip = false end
-    if string.sub(msg, 1, 7) == (prefix .. "speed ") then
+    if string.sub(msg, 1, 7) == (prefix.."noclip") then noclip = true end
+    if string.sub(msg, 1, 5) == (prefix.."clip") then noclip = false end
+    if string.sub(msg, 1, 7) == (prefix.."speed ") then
         lplayer.Character.Humanoid.WalkSpeed = (string.sub(msg, 8))
     end
-    if string.sub(msg, 1, 4) == (prefix .. "ws ") then
+    if string.sub(msg, 1, 4) == (prefix.."ws ") then
         lplayer.Character.Humanoid.WalkSpeed = (string.sub(msg, 5))
     end
-    if string.sub(msg, 1, 11) == (prefix .. "hipheight ") then
+    if string.sub(msg, 1, 11) == (prefix.."hipheight ") then
         lplayer.Character.Humanoid.HipHeight = (string.sub(msg, 12))
     end
-    if sstring.sub(msg, 1, 4) == (prefix .. "hh ") then
+    if sstring.sub(msg, 1, 4) == (prefix.."hh ") then
         lplayer.Character.Humanoid.HipHeight = (string.sub(msg, 5))
     end
-    if string.sub(msg, 1, 11) == (prefix .. "jumppower ") then
+    if string.sub(msg, 1, 11) == (prefix.."jumppower ") then
         lplayer.Character.Humanoid.JumpPower = (string.sub(msg, 12))
     end
-    if string.sub(msg, 1, 4) == (prefix .. "jp ") then
+    if string.sub(msg, 1, 4) == (prefix.."jp ") then
         lplayer.Character.Humanoid.JumpPower = (string.sub(msg, 5))
     end
-    if string.sub(msg, 1, 8) == (prefix .. "default") then
+    if string.sub(msg, 1, 8) == (prefix.."default") then
         lplayer.Character.Humanoid.JumpPower = 50
         lplayer.Character.Humanoid.WalkSpeed = 16
         -- lplayer.Character.Humanoid.HipHeight = 0
     end
-    if string.sub(msg, 1, 7) == (prefix .. "annoy ") then
+    if string.sub(msg, 1, 7) == (prefix.."annoy ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 8))) do
             annoying = true
             annplr = v
         end
     end
-    if string.sub(msg, 1, 8) == (prefix .. "unannoy") then annoying = false end
-    if string.sub(msg, 1, 10) == (prefix .. "headwalk ") then
+    if string.sub(msg, 1, 8) == (prefix.."unannoy") then annoying = false end
+    if string.sub(msg, 1, 10) == (prefix.."headwalk ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 11))) do
             hwalk = true
             hdwplr = v
         end
     end
-    if string.sub(msg, 1, 11) == (prefix .. "unheadwalk") then hwalk = false end
-    if string.sub(msg, 1, 8) == (prefix .. "nolimbs") then
+    if string.sub(msg, 1, 11) == (prefix.."unheadwalk") then hwalk = false end
+    if string.sub(msg, 1, 8) == (prefix.."nolimbs") then
         lplayer.Character["Left Leg"]:Destroy()
         lplayer.Character["Left Arm"]:Destroy()
         lplayer.Character["Right Leg"]:Destroy()
         lplayer.Character["Right Arm"]:Destroy()
     end
-    if (string.sub(msg, 1, 6) == (prefix .. "view ") or string.sub(msg, 1, 3) ==
-        (prefix .. "v ")) then
+    if (string.sub(msg, 1, 6) == (prefix.."view ") or string.sub(msg, 1, 3) ==
+        (prefix.."v ")) then
         for i, v in pairs(GetPlayer(string.sub(msg, 7))) do
             if game:GetService("Players")[v.Name].Character.Humanoid then
                 game:GetService("Workspace").CurrentCamera.CameraSubject =
@@ -619,8 +618,8 @@ lplayer.Chatted:Connect(function(msg)
             end
         end
     end
-    if (string.sub(msg, 1, 7) == (prefix .. "unview") or string.sub(msg, 1, 3) ==
-        (prefix .. "uv") or string.sub(msg, 1, 3) == (prefix .. "rv")) then
+    if (string.sub(msg, 1, 7) == (prefix.."unview") or string.sub(msg, 1, 3) ==
+        (prefix.."uv") or string.sub(msg, 1, 3) == (prefix.."rv")) then
         if lplayer.Character.Humanoid then
             game:GetService("Workspace").CurrentCamera.CameraSubject =
                 lplayer.Character.Humanoid
@@ -629,14 +628,12 @@ lplayer.Chatted:Connect(function(msg)
                 lplayer.Character.Head
         end
     end
-    if string.sub(msg, 1, 6) == (prefix .. "goto ") then
+    if string.sub(msg, 1, 6) == (prefix.."goto ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 7))) do
-            lplayer.Character.HumanoidRootPart.CFrame =
-                game:GetService("Players")[v.Name].Character.HumanoidRootPart
-                    .CFrame
+            lplayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[v.Name].Character.HumanoidRootPart.CFrame
         end
     end
-    if string.sub(msg, 1, 4) == (prefix .. "fly") then
+    if string.sub(msg, 1, 4) == (prefix.."fly") then
         repeat wait() until lplayer and lplayer.Character and
             lplayer.Character:FindFirstChild('HumanoidRootPart') and
             lplayer.Character:FindFirstChild('Humanoid')
@@ -733,32 +730,32 @@ lplayer.Chatted:Connect(function(msg)
         end)
         fly()
     end
-    if string.sub(msg, 1, 6) == (prefix .. "unfly") then
+    if string.sub(msg, 1, 6) == (prefix.."unfly") then
         flying = false
         lplayer.Character.Humanoid.PlatformStand = false
     end
-    if string.sub(msg, 1, 6) == (prefix .. "chat ") then
+    if string.sub(msg, 1, 6) == (prefix.."chat ") then
         game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
             .SayMessageRequest:FireServer((string.sub(msg, 7)), "All")
     end
-    if string.sub(msg, 1, 6) == (prefix .. "spam ") then
+    if string.sub(msg, 1, 6) == (prefix.."spam ") then
         spamtext = (string.sub(msg, 7))
         spamming = true
     end
-    if string.sub(msg, 1, 7) == (prefix .. "unspam") then spamming = false end
-    if string.sub(msg, 1, 10) == (prefix .. "spamwait ") then
+    if string.sub(msg, 1, 7) == (prefix.."unspam") then spamming = false end
+    if string.sub(msg, 1, 10) == (prefix.."spamwait ") then
         spamdelay = (string.sub(msg, 11))
     end
-    if string.sub(msg, 1, 8) == (prefix .. "pmspam ") then
+    if string.sub(msg, 1, 8) == (prefix.."pmspam ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 9))) do
             pmspammed = v.Name
             spammingpm = true
         end
     end
-    if string.sub(msg, 1, 9) == (prefix .. "unpmspam") then
+    if string.sub(msg, 1, 9) == (prefix.."unpmspam") then
         spammingpm = false
     end
-    if string.sub(msg, 1, 9) == (prefix .. "cfreeze ") then
+    if string.sub(msg, 1, 9) == (prefix.."cfreeze ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 10))) do
             v.Character["Left Leg"].Anchored = true
             v.Character["Left Arm"].Anchored = true
@@ -768,7 +765,7 @@ lplayer.Chatted:Connect(function(msg)
             v.Character.Head.Anchored = true
         end
     end
-    if string.sub(msg, 1, 11) == (prefix .. "uncfreeze ") then
+    if string.sub(msg, 1, 11) == (prefix.."uncfreeze ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 12))) do
             v.Character["Left Leg"].Anchored = false
             v.Character["Left Arm"].Anchored = false
@@ -778,7 +775,7 @@ lplayer.Chatted:Connect(function(msg)
             v.Character.Head.Anchored = false
         end
     end
-    if string.sub(msg, 1, 7) == (prefix .. "btools") then
+    if string.sub(msg, 1, 7) == (prefix.."btools") then
         local Clone_T = Instance.new("HopperBin", lplayer.Backpack)
         Clone_T.BinType = "Clone"
         local Destruct = Instance.new("HopperBin", lplayer.Backpack)
@@ -786,46 +783,46 @@ lplayer.Chatted:Connect(function(msg)
         local Hold_T = Instance.new("HopperBin", lplayer.Backpack)
         Hold_T.BinType = "Grab"
     end
-    if string.sub(msg, 1, 7) == (prefix .. "pstand") then
+    if string.sub(msg, 1, 7) == (prefix.."pstand") then
         lplayer.Character.Humanoid.PlatformStand = true
     end
-    if string.sub(msg, 1, 9) == (prefix .. "unpstand") then
+    if string.sub(msg, 1, 9) == (prefix.."unpstand") then
         lplayer.Character.Humanoid.PlatformStand = false
     end
-    if string.sub(msg, 1, 10) == (prefix .. "blockhead") then
+    if string.sub(msg, 1, 10) == (prefix.."blockhead") then
         lplayer.Character.Head.Mesh:Destroy()
     end
-    if string.sub(msg, 1, 4) == (prefix .. "sit") then
+    if string.sub(msg, 1, 4) == (prefix.."sit") then
         lplayer.Character.Humanoid.Sit = true
     end
-    if string.sub(msg, 1, 5) == (prefix .. "cmds") then
+    if string.sub(msg, 1, 5) == (prefix.."cmds") then
         CMDSFRAME.Visible = true
     end
-    if string.sub(msg, 1, 10) == (prefix .. "rmeshhats") then
+    if string.sub(msg, 1, 10) == (prefix.."rmeshhats") then
         for i, v in pairs(lplayer.Character:GetChildren()) do
             if (v:IsA("Accessory")) or (v:IsA("Hat")) then
                 v.Handle.Mesh:Destroy()
             end
         end
     end
-    if string.sub(msg, 1, 10) == (prefix .. "blockhats") then
+    if string.sub(msg, 1, 10) == (prefix.."blockhats") then
         for i, v in pairs(lplayer.Character:GetChildren()) do
             if (v:IsA("Accessory")) or (v:IsA("Hat")) then
                 v.Handle.Mesh:Destroy()
             end
         end
     end
-    if string.sub(msg, 1, 10) == (prefix .. "rmeshtool") then
+    if string.sub(msg, 1, 10) == (prefix.."rmeshtool") then
         for i, v in pairs(lplayer.Character:GetChildren()) do
             if (v:IsA("Tool")) then v.Handle.Mesh:Destroy() end
         end
     end
-    if string.sub(msg, 1, 10) == (prefix .. "blocktool") then
+    if string.sub(msg, 1, 10) == (prefix.."blocktool") then
         for i, v in pairs(lplayer.Character:GetChildren()) do
             if (v:IsA("Tool")) then v.Handle.Mesh:Destroy() end
         end
     end
-    if string.sub(msg, 1, 8) == (prefix .. "spinner") then
+    if string.sub(msg, 1, 8) == (prefix.."spinner") then
         local p = Instance.new("RocketPropulsion")
         p.Parent = lplayer.Character.HumanoidRootPart
         p.Name = "Spinner"
@@ -836,17 +833,17 @@ lplayer.Chatted:Connect(function(msg)
             Text = "Type ;nospinner to disable."
         })
     end
-    if string.sub(msg, 1, 10) == (prefix .. "nospinner") then
+    if string.sub(msg, 1, 10) == (prefix.."nospinner") then
         lplayer.Character.HumanoidRootPart.Spinner:Destroy()
     end
-    if string.sub(msg, 1, 7) == (prefix .. "tp me ") then
+    if string.sub(msg, 1, 7) == (prefix.."tp me ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 8))) do
             lplayer.Character.HumanoidRootPart.CFrame =
                 game:GetService("Players")[v.Name].Character.HumanoidRootPart
                     .CFrame
         end
     end
-    if string.sub(msg, 1, 8) == (prefix .. "cbring ") then
+    if string.sub(msg, 1, 8) == (prefix.."cbring ") then
         if (string.sub(msg, 9)) == "all" or (string.sub(msg, 9)) == "All" or
             (string.sub(msg, 9)) == "ALL" then
             cbringall = true
@@ -857,11 +854,11 @@ lplayer.Chatted:Connect(function(msg)
         end
         cbring = true
     end
-    if string.sub(msg, 1, 9) == (prefix .. "uncbring") then
+    if string.sub(msg, 1, 9) == (prefix.."uncbring") then
         cbring = false
         cbringall = false
     end
-    if string.sub(msg, 1, 8) == (prefix .. "glitch ") then
+    if string.sub(msg, 1, 8) == (prefix.."glitch ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 9))) do
             lplayer.Character.Humanoid.Name = 1
             local l = lplayer.Character["1"]:Clone()
@@ -895,7 +892,7 @@ lplayer.Chatted:Connect(function(msg)
             })
         end
     end
-    if string.sub(msg, 1, 9) == (prefix .. "unglitch") then
+    if string.sub(msg, 1, 9) == (prefix.."unglitch") then
         lplayer.Character.HumanoidRootPart.Glitch:Destroy()
         lplayer.Character.HumanoidRootPart.CFrame = CFrame.new(10000, 0, 10000)
         b = Instance.new("BodyForce")
@@ -905,36 +902,36 @@ lplayer.Chatted:Connect(function(msg)
         wait(2)
         lplayer.Character.HumanoidRootPart.unGlitch:Destroy()
     end
-    if string.sub(msg, 1, 9) == (prefix .. "respawn") then
+    if string.sub(msg, 1, 9) == (prefix.."respawn") then
         lplayer.Character.Humanoid.Health = 0
         wait(1)
         lplayer.Character.Head.CFrame = CFrame.new(1000000, 0, 1000000)
         lplayer.Character.Torso.CFrame = CFrame.new(1000000, 0, 1000000)
     end
-    if string.sub(msg, 1, 6) == (prefix .. "anim ") then
+    if string.sub(msg, 1, 6) == (prefix.."anim ") then
         local Anim = Instance.new("Animation")
         Anim.AnimationId = "rbxassetid://" .. (string.sub(msg, 7))
         local track = lplayer.Character.Humanoid:LoadAnimation(Anim)
         track:Play(.1, 1, 1)
     end
-    if string.sub(msg, 1, 8) == (prefix .. "animgui") then
+    if string.sub(msg, 1, 8) == (prefix.."animgui") then
         loadstring(game:GetObjects("rbxassetid://1202558084")[1].Source)()
         game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "Success!",
             Text = "Energize Animations GUI has loaded."
         })
     end
-    if string.sub(msg, 1, 8) == (prefix .. "savepos") then
+    if string.sub(msg, 1, 8) == (prefix.."savepos") then
         saved = lplayer.Character.HumanoidRootPart.CFrame
         game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "Position Saved",
             Text = "Use ;loadpos to return to saved position."
         })
     end
-    if string.sub(msg, 1, 8) == (prefix .. "loadpos") then
+    if string.sub(msg, 1, 8) == (prefix.."loadpos") then
         lplayer.Character.HumanoidRootPart.CFrame = saved
     end
-    if string.sub(msg, 1, 6) == (prefix .. "bang ") then
+    if string.sub(msg, 1, 6) == (prefix.."bang ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 7))) do
             local Anim2 = Instance.new("Animation")
             Anim2.AnimationId = "rbxassetid://148840371"
@@ -944,8 +941,8 @@ lplayer.Chatted:Connect(function(msg)
             banpl = true
         end
     end
-    if string.sub(msg, 1, 7) == (prefix .. "unbang") then banpl = false end
-    if string.sub(msg, 1, 10) == (prefix .. "bringmod ") then
+    if string.sub(msg, 1, 7) == (prefix.."unbang") then banpl = false end
+    if string.sub(msg, 1, 10) == (prefix.."bringmod ") then
         local function bringmodw()
             for i, obj in ipairs(game:GetService("Workspace"):GetDescendants()) do
                 if obj.Name == (string.sub(msg, 11)) then
@@ -972,7 +969,7 @@ lplayer.Chatted:Connect(function(msg)
             Text = "BringMod enabled."
         })
     end
-    if string.sub(msg, 1, 8) == (prefix .. "respawn") then
+    if string.sub(msg, 1, 8) == (prefix.."respawn") then
         local mod = Instance.new('Model', workspace)
         mod.Name = 're ' .. lplayer.Name
         local hum = Instance.new('Humanoid', mod)
@@ -982,7 +979,7 @@ lplayer.Chatted:Connect(function(msg)
         ins.Transparency = 1
         lplayer.Character = mod
     end
-    if string.sub(msg, 1, 8) == (prefix .. "getplrs") then
+    if string.sub(msg, 1, 8) == (prefix.."getplrs") then
         for i, v in pairs(game:GetService("Players"):GetPlayers()) do
             print(v)
         end
@@ -991,12 +988,12 @@ lplayer.Chatted:Connect(function(msg)
             Text = "Players have been printed to console. (F9)"
         })
     end
-    if string.sub(msg, 1, 9) == (prefix .. "deldecal") then
+    if string.sub(msg, 1, 9) == (prefix.."deldecal") then
         for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
             if (v:IsA("Decal")) then v:Destroy() end
         end
     end
-    if string.sub(msg, 1, 8) == (prefix .. "remotes") then
+    if string.sub(msg, 1, 8) == (prefix.."remotes") then
         remotes = true
         added = true
         game.DescendantAdded:connect(function(rmt)
@@ -1094,7 +1091,7 @@ lplayer.Chatted:Connect(function(msg)
             Text = "Type ;noremotes to disable."
         })
     end
-    if string.sub(msg, 1, 10) == (prefix .. "noremotes") then
+    if string.sub(msg, 1, 10) == (prefix.."noremotes") then
         remotes = false
         added = false
         game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -1102,7 +1099,7 @@ lplayer.Chatted:Connect(function(msg)
             Text = "Type ;remotes to enable."
         })
     end
-    if string.sub(msg, 1, 10) == (prefix .. "tpdefault") then
+    if string.sub(msg, 1, 10) == (prefix.."tpdefault") then
         spin = false
         followed = false
         traill = false
@@ -1111,55 +1108,55 @@ lplayer.Chatted:Connect(function(msg)
         hwalk = false
         cbringing = false
     end
-    if string.sub(msg, 1, 8) == (prefix .. "stopsit") then stopsitting = true end
-    if string.sub(msg, 1, 6) == (prefix .. "gosit") then stopsitting = false end
-    if string.sub(msg, 1, 8) == (prefix .. "clicktp") then
+    if string.sub(msg, 1, 8) == (prefix.."stopsit") then stopsitting = true end
+    if string.sub(msg, 1, 6) == (prefix.."gosit") then stopsitting = false end
+    if string.sub(msg, 1, 8) == (prefix.."clicktp") then
         clickgoto = true
         game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "Click TP",
             Text = "Press E to teleport to mouse position, ;noclicktp to stop"
         })
     end
-    if string.sub(msg, 1, 10) == (prefix .. "noclicktp") then
+    if string.sub(msg, 1, 10) == (prefix.."noclicktp") then
         clickgoto = false
         game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "Click TP",
             Text = "Click TP has been disabled."
         })
     end
-    if string.sub(msg, 1, 9) == (prefix .. "chatlogs") then
+    if string.sub(msg, 1, 9) == (prefix.."chatlogs") then
         chatlogs = true
         game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "Chatlogs Enabled",
             Text = "Chatlogs will now be available in the console"
         })
     end
-    if string.sub(msg, 1, 10) == (prefix .. "delcmdbar") then
+    if string.sub(msg, 1, 10) == (prefix.."delcmdbar") then
         ScreenGui:Destroy()
     end
-    if string.sub(msg, 1, 6) == (prefix .. "reset") then
+    if string.sub(msg, 1, 6) == (prefix.."reset") then
         lplayer.Character.Head:Destroy()
     end
-    if string.sub(msg, 1, 7) == (prefix .. "state ") then
+    if string.sub(msg, 1, 7) == (prefix.."state ") then
         statechosen = string.sub(msg, 8)
         changingstate = true
     end
-    if string.sub(msg, 1, 9) == (prefix .. "gravity ") then
+    if string.sub(msg, 1, 9) == (prefix.."gravity ") then
         game:GetService("Workspace").Gravity = string.sub(msg, 10)
     end
-    if string.sub(msg, 1, 10) == (prefix .. "looprhats") then
+    if string.sub(msg, 1, 10) == (prefix.."looprhats") then
         removingmeshhats = true
     end
-    if string.sub(msg, 1, 12) == (prefix .. "unlooprhats") then
+    if string.sub(msg, 1, 12) == (prefix.."unlooprhats") then
         removingmeshhats = false
     end
-    if string.sub(msg, 1, 10) == (prefix .. "looprtool") then
+    if string.sub(msg, 1, 10) == (prefix.."looprtool") then
         removingmeshtool = true
     end
-    if string.sub(msg, 1, 12) == (prefix .. "unlooprtool") then
+    if string.sub(msg, 1, 12) == (prefix.."unlooprtool") then
         removingmeshtool = false
     end
-    if string.sub(msg, 1, 10) == (prefix .. "givetool ") then
+    if string.sub(msg, 1, 10) == (prefix.."givetool ") then
         for i, v in pairs(
                         game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
             if v:IsA("Tool") then
@@ -1169,7 +1166,7 @@ lplayer.Chatted:Connect(function(msg)
             end
         end
     end
-    if string.sub(msg, 1, 14) == (prefix .. "givealltools ") then
+    if string.sub(msg, 1, 14) == (prefix.."givealltools ") then
         for i, v in pairs(
                         game:GetService("Players").LocalPlayer.Backpack:GetDescendants()) do
             if v:IsA("Tool") then
@@ -1181,7 +1178,7 @@ lplayer.Chatted:Connect(function(msg)
             end
         end
     end
-    if string.sub(msg, 1, 5) == (prefix .. "age ") then
+    if string.sub(msg, 1, 5) == (prefix.."age ") then
         for i, player in pairs(GetPlayer(string.sub(msg, 6))) do
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
                 .SayMessageRequest:FireServer(
@@ -1189,14 +1186,14 @@ lplayer.Chatted:Connect(function(msg)
                     " days", "All")
         end
     end
-    if string.sub(msg, 1, 4) == (prefix .. "id ") then
+    if string.sub(msg, 1, 4) == (prefix.."id ") then
         for i, player in pairs(GetPlayer(string.sub(msg, 5))) do
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
                 .SayMessageRequest:FireServer(
                 player.Name .. "'s account ID is " .. player.UserId, "All")
         end
     end
-    if string.sub(msg, 1, 6) == (prefix .. ".age ") then
+    if string.sub(msg, 1, 6) == (prefix..".age ") then
         for i, player in pairs(GetPlayer(string.sub(msg, 7))) do
             game:GetService("StarterGui"):SetCore("SendNotification", {
                 Title = player.AccountAge .. " Days",
@@ -1205,7 +1202,7 @@ lplayer.Chatted:Connect(function(msg)
             })
         end
     end
-    if string.sub(msg, 1, 5) == (prefix .. ".id ") then
+    if string.sub(msg, 1, 5) == (prefix..".id ") then
         for i, player in pairs(GetPlayer(string.sub(msg, 6))) do
             game:GetService("StarterGui"):SetCore("SendNotification", {
                 Title = player.UserId .. " ID",
@@ -1214,7 +1211,7 @@ lplayer.Chatted:Connect(function(msg)
             })
         end
     end
-    if string.sub(msg, 1, 4) == (prefix .. "pgs") then
+    if string.sub(msg, 1, 4) == (prefix.."pgs") then
         local pgscheck = game:GetService("Workspace"):PGSIsEnabled()
         if pgscheck == true then
             game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -1228,7 +1225,7 @@ lplayer.Chatted:Connect(function(msg)
             })
         end
     end
-    if string.sub(msg, 1, 12) == (prefix .. "removeinvis") then
+    if string.sub(msg, 1, 12) == (prefix.."removeinvis") then
         for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
             if v:IsA("Part") then
                 if v.Transparency == 1 then
@@ -1239,17 +1236,17 @@ lplayer.Chatted:Connect(function(msg)
             end
         end
     end
-    if string.sub(msg, 1, 10) == (prefix .. "removefog") then
+    if string.sub(msg, 1, 10) == (prefix.."removefog") then
         game:GetService("Lighting").FogStart = 0
         game:GetService("Lighting").FogEnd = 9999999999999
     end
-    if string.sub(msg, 1, 8) == (prefix .. "disable") then
+    if string.sub(msg, 1, 8) == (prefix.."disable") then
         lplayer.Character.Humanoid.Parent = lplayer
     end
-    if string.sub(msg, 1, 7) == (prefix .. "enable") then
+    if string.sub(msg, 1, 7) == (prefix.."enable") then
         lplayer.Humanoid.Parent = lplayer.Character
     end
-    if string.sub(msg, 1, 8) == (prefix .. "prefix ") then
+    if string.sub(msg, 1, 8) == (prefix.."prefix ") then
         prefix = (string.sub(msg, 9, 9))
         wait(0.1)
         change()
@@ -1267,15 +1264,15 @@ lplayer.Chatted:Connect(function(msg)
         wait(0.1)
         game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "Prefix changed!",
-            Text = "Prefix is now " .. prefix .. ". Make sure it's one key!"
+            Text = "Prefix is now " .. prefix..". Make sure it's one key!"
         })
     end
-    if string.sub(msg, 1, 10) == (prefix .. "flyspeed ") then
+    if string.sub(msg, 1, 10) == (prefix.."flyspeed ") then
         speedfly = string.sub(msg, 11)
         wait()
         change()
     end
-    if string.sub(msg, 1, 8) == (prefix .. "carpet ") then
+    if string.sub(msg, 1, 8) == (prefix.."carpet ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 9))) do
             local Anim3 = Instance.new("Animation")
             Anim3.AnimationId = "rbxassetid://282574440"
@@ -1285,15 +1282,15 @@ lplayer.Chatted:Connect(function(msg)
             banpl = true
         end
     end
-    if string.sub(msg, 1, 9) == (prefix .. "uncarpet") then banpl = false end
-    if string.sub(msg, 1, 7) == (prefix .. "stare ") then
+    if string.sub(msg, 1, 9) == (prefix.."uncarpet") then banpl = false end
+    if string.sub(msg, 1, 7) == (prefix.."stare ") then
         for i, v in pairs(GetPlayer(string.sub(msg, 8))) do
             staring = true
             stareplr = v
         end
     end
-    if string.sub(msg, 1, 8) == (prefix .. "unstare") then staring = false end
-    if string.sub(msg, 1, 7) == (prefix .. "fixcam") then
+    if string.sub(msg, 1, 8) == (prefix.."unstare") then staring = false end
+    if string.sub(msg, 1, 7) == (prefix.."fixcam") then
         game:GetService("Workspace").CurrentCamera:Destroy()
         wait(0.1)
         game:GetService("Workspace").CurrentCamera.CameraSubject =
@@ -1303,7 +1300,7 @@ lplayer.Chatted:Connect(function(msg)
         lplayer.CameraMaxZoomDistance = 400
         lplayer.CameraMode = "Classic"
     end
-    if string.sub(msg, 1, 8) == (prefix .. "unstate") then
+    if string.sub(msg, 1, 8) == (prefix.."unstate") then
         changingstate = false
     end
 end)
@@ -1651,8 +1648,7 @@ CMDBAR.FocusLost:connect(function(enterPressed)
         if string.sub(CMDBAR.Text, 1, 5) == ("goto ") then
             for i, v in pairs(GetPlayer(string.sub(CMDBAR.Text, 6))) do
                 lplayer.Character.HumanoidRootPart.CFrame =
-                    game:GetService("Players")[v.Name].Character
-                        .HumanoidRootPart.CFrame
+                    game:GetService("Players")[v.Name].Character.HumanoidRootPart.CFrame
             end
         end
         if string.sub(CMDBAR.Text, 1, 3) == ("fly") then
